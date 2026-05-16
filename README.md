@@ -50,7 +50,7 @@ docker compose down
 
 **Windows:**
 ```bash
-mvnw.cmd spring-boot:run
+.\mvnw.cmd spring-boot:run
 ```
 
 ---
@@ -170,7 +170,7 @@ Realiza um **soft delete**: o cupom não é removido do banco, apenas tem seu st
 
 **Windows:**
 ```bash
-mvnw.cmd test
+.\mvnw.cmd test
 ```
 
 Resultado esperado:
