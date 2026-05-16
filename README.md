@@ -17,6 +17,15 @@ API REST para gerenciamento de cupons de desconto, desenvolvida com Java 17, Spr
 
 ---
 
+## Clonando o repositório
+
+```bash
+git clone https://github.com/GeiseSaunier/desafio-tecnico-cupons.git
+cd desafio-tecnico-cupons
+```
+
+---
+
 ## Como rodar a aplicação
 
 ### Opção 1 — Docker (recomendado)
