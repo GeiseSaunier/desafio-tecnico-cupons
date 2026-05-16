@@ -59,6 +59,74 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.13</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<formats>
+								<format>CSV</format>
+							</formats>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.gmaven</groupId>
+				<artifactId>groovy-maven-plugin</artifactId>
+				<version>2.1.1</version>
+				<executions>
+					<execution>
+						<id>print-coverage</id>
+						<phase>test</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>
+def csv = new File(project.build.directory, "site/jacoco/jacoco.csv")
+if (!csv.exists()) return
+int totalInst = 0, coveredInst = 0
+def bar = "  +" + "-"*35 + "+" + "-"*12 + "+" + "-"*9 + "+"
+println ""
+println bar
+println "  | " + "Classe".padRight(33) + " |  Instrucoes |  Cobert. |"
+println bar
+csv.readLines().tail().each { line ->
+    def c = line.split(",")
+    if (c.size() >= 5) {
+        def name  = c[2].trim()
+        def miss  = c[3].trim().toInteger()
+        def cov   = c[4].trim().toInteger()
+        def total = miss + cov
+        def pct   = total > 0 ? (int)(cov * 100.0 / total) : 0
+        totalInst += total; coveredInst += cov
+        def n = (name.size() > 33 ? name.substring(0, 30) + "..." : name).padRight(33)
+        println "  | ${n} | " + "${cov}/${total}".padLeft(11) + "| " + "${pct}%".padLeft(7) + " |"
+    }
+}
+def totalPct = totalInst > 0 ? (int)(coveredInst * 100.0 / totalInst) : 0
+println bar
+println "  | " + "TOTAL".padRight(33) + " | " + "${coveredInst}/${totalInst}".padLeft(11) + "| " + "${totalPct}%".padLeft(7) + " |"
+println bar
+println ""
+							</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
