@@ -41,6 +41,9 @@ Aguarde a mensagem:
 Started DesafioTecnicoApplication in X seconds
 ```
 
+Acesse a API no navegador:
+- **Swagger UI:** http://localhost:8080/swagger-ui.html
+
 Para parar:
 ```bash
 docker compose down
@@ -61,6 +64,14 @@ docker compose down
 ```bash
 .\mvnw.cmd spring-boot:run
 ```
+
+Aguarde a mensagem:
+```
+Started DesafioTecnicoApplication in X seconds
+```
+
+Acesse a API no navegador:
+- **Swagger UI:** http://localhost:8080/swagger-ui.html
 
 ---
 
