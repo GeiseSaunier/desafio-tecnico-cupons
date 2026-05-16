@@ -60,15 +60,6 @@ mvnw.cmd spring-boot:run
 | Recurso | URL |
 |---|---|
 | Swagger UI | http://localhost:8080/swagger-ui.html |
-| H2 Console | http://localhost:8080/h2-console |
-
-**Configurações do H2 Console:**
-
-| Campo | Valor |
-|---|---|
-| JDBC URL | `jdbc:h2:mem:desafio_tecnico` |
-| User Name | `sa` |
-| Password | *(deixar em branco)* |
 
 > Os dados são perdidos ao reiniciar a aplicação por ser um banco em memória.
 
