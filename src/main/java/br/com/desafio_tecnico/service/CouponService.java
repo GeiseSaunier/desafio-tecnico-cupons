@@ -9,6 +9,7 @@ import br.com.desafio_tecnico.repository.CouponRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
@@ -84,7 +85,7 @@ public class CouponService {
         response.setId(coupon.getId());
         response.setCode(coupon.getCode());
         response.setDescription(coupon.getDescription());
-        response.setDiscountValue(coupon.getDiscountValue());
+        response.setDiscountValue(coupon.getDiscountValue().setScale(2, RoundingMode.HALF_UP));
         response.setExpirationDate(coupon.getExpirationDate().format(RESPONSE_FORMATTER));
         response.setPublished(coupon.isPublished());
         response.setRedeemed(coupon.isRedeemed());
