@@ -83,7 +83,7 @@ Acesse a API no navegador:
 
 > Os dados são perdidos ao reiniciar a aplicação por ser um banco em memória.
 
-> **Nota:** valores numéricos como `discountValue` podem aparecer sem casas decimais no Swagger UI (`10` em vez de `10.00`). Isso é uma limitação do JavaScript, que não preserva zeros à direita em números ao renderizar JSON. A API retorna o valor correto com duas casas decimais — verificável via curl ou Postman.
+> **Nota:** valores numéricos como `discountValue` podem aparecer sem casas decimais no Swagger UI (`10` em vez de `10.00`). Isso é uma limitação do JavaScript, que não preserva zeros à direita em números ao renderizar JSON.
 
 ---
 
